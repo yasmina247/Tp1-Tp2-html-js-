@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Carousel</title>
+</head>
+<style>
+    button{
+        width: 150px;
+        height : 40px;
+        border-radius: 7px;
+        margin:auto;
+        background-color: rgb(184, 225, 211);
+        margin-bottom: 5px;
+    }
+</style>
+<body>
+
+<img id="image" src="img1.jpg" width="300">
+
+<br><br>
+
+<button onclick="precedent()">Précédent</button>
+<button onclick="suivant()">Suivant</button>
+
+<script>
+let images = ["img1.jpg", "img2.jpg", "img3.jpeg"];
+let index = 0;
+
+function suivant() {
+    index = (index + 1) % images.length;
+    document.getElementById("image").src = images[index];
+}
+
+function precedent() {
+    index = (index - 1 + images.length) % images.length;
+    document.getElementById("image").src = images[index];
+}
+</script>
+
+</body>
+</html>
