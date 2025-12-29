@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>To-do list</title>
+</head>
+
+<body>
+
+<h1>To do list</h1>
+
+<input type="text" id="tache" placeholder="Nouvelle tâche">
+<button onclick="ajouter()">Ajouter</button>
+<ul id="liste"></ul>
+
+<script>
+function ajouter() {
+    let texte = document.getElementById("tache").value;
+    if (texte === "") return;
+
+    let li = document.createElement("li");
+    li.textContent = texte;
+
+    let btnSupprimer = document.createElement("button");
+    btnSupprimer.textContent = "Supprimer";
+    btnSupprimer.onclick = () => li.remove();
+
+    li.appendChild(btnSupprimer);
+
+    document.getElementById("liste").appendChild(li);
+    document.getElementById("tache").value = "";
+}
+</script>
+
+</body>
+</html>

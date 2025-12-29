@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculatrice</title>
+    <style>
+        .numbers{
+            margin-bottom: 20px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Calculatrice</h2>
+
+<input type="number" id="num1" class="numbers" placeholder="Nombre 1"><br>
+<input type="number" id="num2" class="numbers" placeholder="Nombre 2"><br>
+
+<button onclick="calcul('+')">+</button>
+<button onclick="calcul('-')">-</button>
+<button onclick="calcul('*')">*</button>
+<button onclick="calcul('/')">/</button>
+
+<p >Résultat : <span id="resultat"></span></p>
+
+<script>
+function calcul(operation) {
+    let a = parseFloat(document.getElementById("num1").value);
+    let b = parseFloat(document.getElementById("num2").value);
+    let res;
+
+    if (operation === '+') res = a + b;
+    else if (operation === '-') res = a - b;
+    else if (operation === '*') res = a * b;
+    else if (operation === '/') {
+        if (b === 0) {
+            alert("Division par zéro impossible");
+            return;
+        }
+        res = a / b;
+    }
+
+    document.getElementById("resultat").textContent = res;
+}
+</script>
+
+</body>
+</html>

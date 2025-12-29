@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Filtrage tableau</title>
+</head>
+
+<body>
+
+<input type="text" id="recherche" onkeyup="filtrer()" placeholder="Rechercher">
+
+<ul id="produits" type="circle">
+    <li>Ordinateur</li>
+    <li>Telephone</li>
+    <li>Tablette</li>
+    <li>Ecran led</li>
+    <li>Souris sans fil</li>
+    <li>Clavier mécanique</li>
+</ul>
+
+<script>
+function filtrer() {
+    let valeur = document.getElementById("recherche").value.toLowerCase();
+    let items = document.querySelectorAll("#produits li");
+
+    items.forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(valeur)
+            ? "block"
+            : "none";
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculatrice</title>
+</head>
+<style>
+    button{
+        width: 30px;
+        height : 30px;
+        border-radius: 7px;
+        margin:auto;
+        background-color: rgb(145, 199, 181);
+        margin-bottom: 5px;
+    }
+</style>
+<body>
+
+<input type="text" id="ecran" disabled>
+
+<br><br>
+
+<button onclick="ajouter('1')">1</button>
+<button onclick="ajouter('2')">2</button>
+<button onclick="ajouter('3')">3</button>
+<button onclick="ajouter('+')">+</button><br>
+
+<button onclick="ajouter('4')">4</button>
+<button onclick="ajouter('5')">5</button>
+<button onclick="ajouter('6')">6</button>
+<button onclick="ajouter('-')">-</button><br>
+
+<button onclick="ajouter('7')">7</button>
+<button onclick="ajouter('8')">8</button>
+<button onclick="ajouter('9')">9</button>
+<button onclick="ajouter('*')">*</button><br>
+
+<button onclick="ajouter('0')">0</button>
+<button onclick="calculer()">=</button>
+<button onclick="effacer()">C</button>
+<button onclick="ajouter('/')">/</button>
+
+<script>
+function ajouter(valeur) {
+    document.getElementById("ecran").value += valeur;
+}
+
+function calculer() {
+    let exp = document.getElementById("ecran").value;
+    document.getElementById("ecran").value = eval(exp);
+}
+
+function effacer() {
+    document.getElementById("ecran").value = "";
+}
+</script>
+
+</body>
+</html>

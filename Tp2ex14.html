@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <style>
+        body {
+            font-family:Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .column {
+            width: 250px;
+            min-height: 300px;
+            background-color: #eeeeee;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        #target {
+            border: 2px dashed #aaa;
+        }
+        .column.drag-over {
+            background-color: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        h3 {
+            margin-top: 0;
+            font-size: 1.1em;
+        }
+
+        .item {
+            width: 80%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            cursor: grab;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .item:active {
+            cursor: grabbing;
+        }
+        .dragging {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Drag and Drop</h1>
+
+    <div class="container">
+        <div class="column" id="source">
+        <h3>À déplacer</h3>
+            <div class="item" draggable="true" id="item1">Élément 1</div>
+            <div class="item" draggable="true" id="item2">Élément 2</div>
+            <div class="item" draggable="true" id="item3">Élément 3</div>
+        </div>
+
+        <div class="column" id="target">
+            <h3>Déposer ici</h3>
+        </div>
+    </div>
+
+    <script>
+        const items = document.querySelectorAll('.item');
+        const columns = document.querySelectorAll('.column');
+
+        // Configuration de chaque élément déplaçable
+        items.forEach(item => {
+            item.addEventListener('dragstart', (e) => {
+                item.classList.add('dragging');
+                e.dataTransfer.setData('text/plain', e.target.id);
+            });
+
+            item.addEventListener('dragend', () => {
+                item.classList.remove('dragging');
+            });
+        });
+
+        // Configuration des zones de dépôt
+        columns.forEach(column => {
+            column.addEventListener('dragover', (e) => {
+                e.preventDefault(); 
+                column.classList.add('drag-over');
+            });
+            column.addEventListener('dragleave', () => {
+                column.classList.remove('drag-over');
+            });
+            column.addEventListener('drop', (e) => {
+                e.preventDefault();
+                column.classList.remove('drag-over');
+
+                const id = e.dataTransfer.getData('text/plain');
+                const draggedElement = document.getElementById(id);
+                // Déplacer l'élément physiquement dans la nouvelle colonne
+                column.appendChild(draggedElement);
+            });
+        });
+    </script>
+
+</body>
+</html>

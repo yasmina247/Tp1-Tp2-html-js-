@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Timer</title>
+</head>
+<body>
+
+<h2>Temps écoulé :</h2>
+<p id="timer">0 secondes</p>
+
+<script>
+let secondes = 0;
+
+setInterval(() => {
+    secondes++;
+    document.getElementById("timer").textContent = secondes + " secondes";
+}, 1000);
+</script>
+
+</body>
+</html>

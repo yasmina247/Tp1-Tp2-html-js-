@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            color: rgb(10, 10, 10);
+            size: 16px;
+            margin: 34px;  
+
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            border-radius: 10px ;
+            color: rgb(229, 153, 165);
+            size: 50px;
+            margin-left: 34px;
+        }
+    </style>
+</head>
+<body>
+    <p id="texte">Ce text peut etre affiché ou masqué en cliquant sur le bouton ci-dessous</p>
+    <button onclick="affichermasquer()">masquer</button>
+    <script>
+    function affichermasquer() {
+      let texte = document.getElementById("texte");
+      let button = document.querySelector("button");
+
+      if (texte.style.display == "none") {
+        texte.style.display = "block";
+        button.textContent = "masquer";
+      } else {
+        texte.style.display = "none";
+        button.textContent = "afficher";
+      }
+    }
+  </script>
+</body>
+</html>

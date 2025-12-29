@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Menu</title>
+
+<style>
+#menu {
+    width: 300px;
+}
+
+#contenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background-color: #f0f0f0;
+}
+
+#contenu.open {
+    max-height: 200px;
+}
+.click{
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div id="menu">
+    <h3 onclick="toggleMenu()" class="click">Menu ></h3>
+    <div id="contenu">
+        <p>Accueil</p>
+        <p>Services</p>
+        <p>Contact</p>
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("contenu").classList.toggle("open");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .champ{
+            margin-bottom: 20px;
+            width: 300px;
+        }
+        .button{
+            border-radius: 20px;
+            background-color: pink;
+            size: 20px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+    <input class="champ" type="text" id="nom" placeholder="Nom"> <br>
+    <input class="champ" type="text" id="email" placeholder="Email"><br>
+    <input type="submit" class="button" value="soumettre" onclick="valider()">
+    </form>
+    <script>
+        function valider(){
+            let nom= document.getElementById("nom").value;
+            let email = document.getElementById("email").value;
+            if(nom=="" || email==""){
+            alert("veuillez remplir le formulaire");
+            return false;
+            }else{
+                alert("formulaire envoyée");
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>

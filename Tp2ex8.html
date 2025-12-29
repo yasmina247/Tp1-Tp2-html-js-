@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>souris</title>
+
+<style>
+    p{
+        font-size: 20px;
+    }
+#box {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(236, 236, 238);
+    border-radius: 10px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+</style>
+</head>
+<body>
+
+<div id="box"
+     onmouseover="changerCouleur()"
+     onmouseout="couleurOriginale()">
+     <p>Passer la souris ici</p>
+</div>
+
+<script>
+function changerCouleur() {
+    document.getElementById("box").style.backgroundColor = "red";
+}
+
+function couleurOriginale() {
+    document.getElementById("box").style.backgroundColor = "blue";
+}
+</script>
+
+</body>
+</html>
